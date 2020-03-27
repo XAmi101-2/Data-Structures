@@ -1,8 +1,7 @@
 import sys
 sys.path.append('../queue_and_stack')
-from dll_queue import Queue
+from dll_queue import Queue 
 from dll_stack import Stack
-
 
 class BinarySearchTree:
     def __init__(self, value):
@@ -107,10 +106,17 @@ class BinarySearchTree:
                  # print(node.value)
 
         if self.value != None:
-            if self.left:
+            if self.left :
                 self.left.in_order_print(node)
+            print(self.value)
             if self.right:
-             self.right.in_order_print(node)
+                self.right.in_order_print(self.right)
+        
+        # if self.left:
+        #     self.left.in_order_print(self.left)
+        # # print(self.value)
+        # if self.right:
+        #     self.right.in_order_print(self.right)
 
     # Print the value of every node, starting with the given node,
     # in an iterative breadth first traversal
@@ -129,8 +135,8 @@ class BinarySearchTree:
             # else break
                 
         queue = Queue()
-        queue.enqueue(self)
-        while queue.len != 0:
+        queue.enqueue(node)
+        while queue.len() != 0:
             temp: BinarySearchTree = queue.dequeue()
             if temp:
                 if temp.right:
@@ -138,6 +144,7 @@ class BinarySearchTree:
                 if temp.left:
                     queue.enqueue(temp.left)
                 print(temp.value)
+
             else:
                 break
 
@@ -159,7 +166,7 @@ class BinarySearchTree:
 
         stack = Stack()
         stack.push(node)
-        while stack.len != 0:
+        while stack.len() > 0:
             temp: BinarySearchTree = stack.pop()
             if temp:
                 if temp.right:
@@ -169,6 +176,7 @@ class BinarySearchTree:
                 print(temp.value)
             else:
                 break
+
 
     # STRETCH Goals -------------------------
     # Note: Research may be required
